@@ -21,7 +21,7 @@ public class URLConnectionReader {
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
             if (inputLine != null) {
-                list.add(inputLine);
+                list.add(inputLine.toLowerCase());
             }
         }
         in.close();
