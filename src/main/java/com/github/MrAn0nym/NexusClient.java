@@ -17,7 +17,6 @@ public class NexusClient implements ModInitializer {
                 roles.clear();
             }
             URLConnectionReader.downloadinformation("roles").forEach(s -> {
-                System.out.println(s);
                 try {
                     member = URLConnectionReader.downloadinformation(s.substring(9));
                     roles.put(s, member);
@@ -25,6 +24,7 @@ public class NexusClient implements ModInitializer {
                     e.printStackTrace();
                 }
             });
+            System.out.println("Loaded namecolors");
         } catch (IOException e) {
             e.printStackTrace();
         }
