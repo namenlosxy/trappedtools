@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "EntityRendererMixin"
+    "EntityRendererMixin",
+    "PlayerListHUDMixin"
   ],
   "injectors": {
     "defaultRequire": 1
