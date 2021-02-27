@@ -24,7 +24,6 @@ public class NexusClient implements ModInitializer {
                     e.printStackTrace();
                 }
             });
-            System.out.println("Loaded namecolors");
         } catch (IOException e) {
             e.printStackTrace();
         }
