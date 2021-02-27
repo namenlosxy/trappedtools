@@ -1,9 +1,3 @@
-# Fabric Example Mod
-
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+# NexusClient
+All current features in one screenshot:
+![2021-02-27_19 16 50](https://user-images.githubusercontent.com/63542658/109396784-70576200-7933-11eb-9cf7-a13db67d0213.png)
