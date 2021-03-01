@@ -16,14 +16,10 @@ public class NexusClient implements ModInitializer {
             if (!roles.isEmpty()) {
                 roles.clear();
             }
-            URLConnectionReader.downloadinformation("roles").forEach(s -> {
-                try {
-                    member = URLConnectionReader.downloadinformation(s.substring(9));
-                    roles.put(s, member);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+            for(String elem : URLConnectionReader.downloadinformation("roles")) {
+                member = URLConnectionReader.downloadinformation(elem.substring(9));
+                roles.put(elem,member);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
