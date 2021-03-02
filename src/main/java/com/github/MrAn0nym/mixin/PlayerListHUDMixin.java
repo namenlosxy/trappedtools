@@ -17,8 +17,7 @@ public class PlayerListHUDMixin {
         if (color != -1862270977) {
             AtomicInteger colorNew = new AtomicInteger(color);
             NexusClient.roles.forEach((s, strings) -> {
-                strings = strings + "■";
-                if (strings.contains(text.getString().toLowerCase())) {
+                if (strings.contains(text.getString().toLowerCase().replace("■",""))) {
                     colorNew.set(Integer.parseInt(s.substring(0, 8)));
                 }
             });
