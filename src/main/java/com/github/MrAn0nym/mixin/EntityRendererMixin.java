@@ -31,7 +31,7 @@ public abstract class EntityRendererMixin<T extends Entity> {
         Text text = args.get(0);
         if (entity instanceof PlayerEntity) {
             NexusClient.roles.forEach((s, strings) -> {
-                string = string + "■";
+                strings = strings + "■";
                 if (strings.contains(text.getString().toLowerCase())) {
                     color.set(Integer.parseInt(s.substring(0, 8)));
                 }
