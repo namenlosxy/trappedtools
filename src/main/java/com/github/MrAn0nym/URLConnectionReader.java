@@ -14,7 +14,7 @@ public class URLConnectionReader {
         list.clear();
         URL url = new URL("https://gist.githubusercontent.com/MrAn0nym/baa4fae05f0e4a3b9cbe1d5aceeb50be/raw/" + role + ".list" + "?_=" + System.currentTimeMillis());
         URLConnection yc = url.openConnection();
-        yc.setDefaultUseCaches(false);
+        yc.setUseCaches(false);
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 yc.getInputStream()));
 
