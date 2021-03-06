@@ -1,4 +1,4 @@
-package com.github.MrAn0nym;
+package com.github.namenlosxy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class URLConnectionReader {
-    public static List<String> downloadinformation(String role) throws IOException {
+    public static List<String> downloadInformation(String role) throws IOException {
         List<String> list = new ArrayList<>();
-        list.clear();
-        URL url = new URL("https://gist.githubusercontent.com/MrAn0nym/baa4fae05f0e4a3b9cbe1d5aceeb50be/raw/" + role + ".list" + "?_=" + System.currentTimeMillis());
+        URL url = new URL("https://raw.githubusercontent.com/namenlosxy/playerlist/main/factions/" + role + ".list" + "?_=" + System.currentTimeMillis());
         URLConnection yc = url.openConnection();
         yc.setUseCaches(false);
         BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -20,9 +19,7 @@ public class URLConnectionReader {
 
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
-            if (inputLine != null) {
-                list.add(inputLine.toLowerCase());
-            }
+            list.add(inputLine.toLowerCase());
         }
         in.close();
         return list;

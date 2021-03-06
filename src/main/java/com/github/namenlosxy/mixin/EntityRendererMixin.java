@@ -1,6 +1,6 @@
-package com.github.MrAn0nym.mixin;
+package com.github.namenlosxy.mixin;
 
-import com.github.MrAn0nym.NexusClient;
+import com.github.namenlosxy.TrappedTools;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static com.github.namenlosxy.hexToColor.convertToColor;
 
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin<T extends Entity> {
@@ -30,9 +32,9 @@ public abstract class EntityRendererMixin<T extends Entity> {
         AtomicInteger color = new AtomicInteger(args.get(3));
         Text text = args.get(0);
         if (entity instanceof PlayerEntity) {
-            NexusClient.roles.forEach((s, strings) -> {
+            TrappedTools.roles.forEach((s, strings) -> {
                 if (strings.contains(text.getString().toLowerCase().replace("■",""))) {
-                    color.set(Integer.parseInt(s.substring(0, 8)));
+                    color.set(convertToColor(s.substring(0, 7)));
                 }
             });
         }

@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "nexusclient",
+  "id": "trappedtools",
   "version": "${version}",
 
-  "name": "NexusClient",
+  "name": "TrappedTools",
   "description": "Some random client lol",
   "authors": [
     "namenlosxy"
   ],
   "contact": {
-    "sources": "https://github.com/MrAn0nym/nexusclient"
+    "sources": "https://github.com/namenlosxy/trappedtools"
   },
 
   "license": "MIT",
-  "icon": "assets/nexusclient/icon.png",
+  "icon": "assets/trappedtools/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.MrAn0nym.NexusClient"
+      "com.github.namenlosxy.TrappedTools"
     ]
   },
   "mixins": [
-    "nexusclient.mixins.json"
+    "trappedtools.mixins.json"
   ],
 
   "depends": {
