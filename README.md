@@ -1,4 +1,5 @@
 # Trappedtools
+## Discord: https://discord.gg/MKXaubS3vv
 ## Features
  - Colored names in tablist
 
