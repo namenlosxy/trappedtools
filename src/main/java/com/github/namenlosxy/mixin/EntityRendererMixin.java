@@ -1,10 +1,10 @@
 package com.github.namenlosxy.mixin;
 
 import com.github.namenlosxy.TrappedTools;
-import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
+import net.minecraft.util.text.ITextComponent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
@@ -19,21 +19,21 @@ import static com.github.namenlosxy.hexToColor.convertToColor;
 public abstract class EntityRendererMixin<T extends Entity> {
     private T entity;
 
-    @ModifyVariable(method = "renderLabelIfPresent(Lnet/minecraft/entity/Entity;Lnet/minecraft/text/Text;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At("HEAD"))
+    @ModifyVariable(method = "renderName(Lnet/minecraft/entity/Entity;Lnet/minecraft/util/text/ITextComponent;Lcom/mojang/blaze3d/matrix/MatrixStack;Lnet/minecraft/client/renderer/IRenderTypeBuffer;I)V", at = @At("HEAD"))
     private T injected(T entity) {
         this.entity = entity;
         return entity;
     }
 
 
-    @ModifyArgs(method = "renderLabelIfPresent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLnet/minecraft/util/math/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;ZII)I"))
+    @ModifyArgs(method = "renderName", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/FontRenderer;func_243247_a(Lnet/minecraft/util/text/ITextComponent;FFIZLnet/minecraft/util/math/vector/Matrix4f;Lnet/minecraft/client/renderer/IRenderTypeBuffer;ZII)I"))
     private void injected(Args args) {
         //Change Color
         AtomicInteger color = new AtomicInteger(args.get(3));
-        Text text = args.get(0);
+        ITextComponent text = args.get(0);
         if (entity instanceof PlayerEntity) {
             TrappedTools.roles.forEach((s, strings) -> {
-                if (strings.contains(text.getString().toLowerCase().replace("■",""))) {
+                if (strings.contains(text.getString().toLowerCase().replace("■", ""))) {
                     color.set(convertToColor(s.substring(0, 7)));
                 }
             });
