@@ -9,5 +9,7 @@
  - Nexus Empire
  - Skull Empire
  - Arka Empire
+ - The Ferrymen
+ - Everglow Economic Nation
 
 ## If you are a faction leader you can add your faction by filling out this form https://forms.gle/Q5h4wQg6QFrHDdK2A
